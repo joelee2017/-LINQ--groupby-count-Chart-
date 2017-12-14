@@ -96,8 +96,11 @@
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.CustomProperties = "PieLabelStyle=Outside";
+            series1.IsValueShownAsLabel = true;
+            series1.IsXValueIndexed = true;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
+            series1.ToolTip = "#VALX";
             series1.XValueMember = "Country";
             series1.YValueMembers = "Number";
             this.chart1.Series.Add(series1);
