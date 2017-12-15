@@ -14,6 +14,12 @@ namespace 常用LINQ查詢語法_groupby與count
     
     public partial class Customers
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Customers()
+        {
+            this.Orders = new HashSet<Orders>();
+        }
+    
         public string CustomerID { get; set; }
         public string CompanyName { get; set; }
         public string ContactName { get; set; }
@@ -25,5 +31,8 @@ namespace 常用LINQ查詢語法_groupby與count
         public string Country { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Orders> Orders { get; set; }
     }
 }

@@ -87,6 +87,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NorthWindModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Orders.cs">
+      <DependentUpon>NorthWindModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

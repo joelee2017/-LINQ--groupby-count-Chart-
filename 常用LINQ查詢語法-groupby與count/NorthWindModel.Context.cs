@@ -26,5 +26,6 @@ namespace 常用LINQ查詢語法_groupby與count
         }
     
         public virtual DbSet<Customers> Customers { get; set; }
+        public virtual DbSet<Orders> Orders { get; set; }
     }
 }

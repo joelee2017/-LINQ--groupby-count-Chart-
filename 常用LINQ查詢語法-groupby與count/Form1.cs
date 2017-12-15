@@ -34,7 +34,8 @@ namespace 常用LINQ查詢語法_groupby與count
             this.customersTableAdapter.Fill(this.northwindDataSet.Customers);
             NorthwindEntities dc = new NorthwindEntities();
 
-            cbCountry.DataSource = dc.Customers.Select(c => c.Country).Distinct().ToArray();
+           // cbCountry.DataSource = dc.Customers.Select(c => c.Country).Distinct().ToArray();
+            //combobox
 
             
             var query = (from c in dc.Customers
@@ -55,6 +56,41 @@ namespace 常用LINQ查詢語法_groupby與count
             {
                 p["Exploded"] = "True";
             }
+        }
+
+        /// <summary>
+        /// string Country = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+        /// 建立變數供  dc.Customers.Where 比對使用
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            NorthwindEntities dc = new NorthwindEntities();
+            string Country = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+            dataGridView2.DataSource = dc.Customers.Where(c => c.Country == Country).ToArray();
+        }
+
+
+        /// <summary>
+        /// LINQ 敘述
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            NorthwindEntities dc = new NorthwindEntities();
+            //var query = from c in dc.Customers
+            //            where !(from o in dc.Orders select o.CustomerID).Distinct().
+            //            Contains(c.CustomerID)
+            //            select c;
+            //dataGridView2.DataSource = query.ToArray();
+
+            var query = dc.Customers.Where(
+                c => c.Orders.Count() >= 5).Select(c =>
+                   c.CompanyName);
+            dataGridView2.DataSource = query.ToArray();
         }
     }
 }

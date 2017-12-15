@@ -42,12 +42,15 @@
             this.northwindDataSet = new 常用LINQ查詢語法_groupby與count.NorthwindDataSet();
             this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customersTableAdapter = new 常用LINQ查詢語法_groupby與count.NorthwindDataSetTableAdapters.CustomersTableAdapter();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.btnCustomer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.northwindDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.northwindDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // cbCountry
@@ -74,8 +77,9 @@
             this.dataGridView1.Location = new System.Drawing.Point(13, 90);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(262, 497);
+            this.dataGridView1.Size = new System.Drawing.Size(928, 264);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // chart1
             // 
@@ -91,7 +95,7 @@
             this.chart1.DataSource = this.customersBindingSource1;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(291, 90);
+            this.chart1.Location = new System.Drawing.Point(971, 286);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
@@ -104,7 +108,7 @@
             series1.XValueMember = "Country";
             series1.YValueMembers = "Number";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(984, 576);
+            this.chart1.Size = new System.Drawing.Size(224, 128);
             this.chart1.TabIndex = 3;
             this.chart1.Text = "chart1";
             title1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -138,11 +142,32 @@
             // 
             this.customersTableAdapter.ClearBeforeFill = true;
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(13, 360);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(928, 266);
+            this.dataGridView2.TabIndex = 4;
+            // 
+            // btnCustomer
+            // 
+            this.btnCustomer.Location = new System.Drawing.Point(348, 21);
+            this.btnCustomer.Name = "btnCustomer";
+            this.btnCustomer.Size = new System.Drawing.Size(98, 23);
+            this.btnCustomer.TabIndex = 5;
+            this.btnCustomer.Text = "客戶訂單查詢";
+            this.btnCustomer.UseVisualStyleBackColor = true;
+            this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1287, 714);
+            this.Controls.Add(this.btnCustomer);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnSearch);
@@ -156,6 +181,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.northwindDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.northwindDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -171,6 +197,8 @@
         private NorthwindDataSetTableAdapters.CustomersTableAdapter customersTableAdapter;
         private System.Windows.Forms.BindingSource customersBindingSource1;
         private System.Windows.Forms.BindingSource northwindDataSetBindingSource;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button btnCustomer;
     }
 }
 
